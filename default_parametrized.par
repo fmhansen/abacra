@@ -1,0 +1,141 @@
+{
+
+# =============================== parameters ===============================================
+#   _rmin to _rmax are ranges for sensitivity analysis
+
+"price_elasticity_of_demand": 100.,
+
+# savings rate (0.25 is the average gross savings rate in terms of GDP on a national level)
+"savings_rate": 0.25,
+"savings_rate_rmin": 0.15,
+"savings_rate_rmax": 0.25,
+
+"interest_rate_on_savings": 0.02,
+"interest_rate_on_credit": 0.05,
+"intensification_credit_limit_per_ha": 200.0,
+
+# "intensification_credit_limit_abs": 1000,
+# constant consumption
+"const_consumption": 0.,
+
+# coefficient of degradation
+"beta": 0.15,
+
+# pasture quality after deforestation
+"q_d": 1.,
+
+# natural recovery rate of soil productivity
+"pasture_recovery_rate": 0.0,
+# maximal productivity after natural recovery
+"q_max_natural": 1.5,
+
+# regeneration rate of secondary vegetation to forest
+"full_regeneration_rate": 0.013, # corresponds to half-life of 50 years
+# has to take into account also r_S in order to yield full recovery
+# natural recovery rate of secondary vegetation productivity (v)
+"r_S": 0.06, # corresponding to a half-life of about 12 years
+# (which is half the time needed to restore biomass, about 20 years)
+
+# deforestation cost
+"def_cost": 1500., # in R$ per ha
+"def_cost_rmin": 1000.,
+"def_cost_rmax": 3000.,
+
+# intensification cost
+"intensification_cost": 500., # in R$ per ha
+"intensification_cost_rmin": 300.,
+"intensification_cost_rmax": 1000.,
+
+# management cost
+"man_cost": 1000., # in R$ per ha (per increase in quality?)
+
+# cost for reuse of areas
+"reuse_cost": 500.,
+
+# parameters in decision function for deforestation
+"D_int": 0.05,
+"D_ext": 0.05,
+"income_investment_comp_factor_int": 7,
+"income_investment_comp_factor_ext": 7,
+"P_max_ext": 0.5, # maximal relative area used in extensive strategy
+
+# parameter to reduce the available area for deforestation
+"available_area_frac": 1.,
+
+# parameters in decision function for abandonment
+"A_int": 0.05,
+"A_ext": 0.05,
+"q_thrA": 0.2,
+
+# parameters in decision function for reuse
+"R_int": 0.05,
+"R_ext": 0.05,
+"q_thrR": 0.3,
+"v_thrR": 0.5,
+
+# parameters in decision function for management
+"m": 0.5,
+"q_thrm": 0.5,
+
+# stocking densities
+"l_ext": 0.8,
+"l_int": 1.6,
+
+# fixed cattle price
+"fixed_cattle_price": 2500, # 80 R$ per arroba (15kg) @ 500 kg slaughter weight = 2666 R$/head
+"initial_cattle_price": 2500,
+"years_on_pasture": 3.,
+
+# imitation rate
+"imitation_rate": 1.0,
+# mean number of potential imitation interactions per agent and time step
+
+# =============================== settings & switches ======================================
+
+# criterion for imitation:
+"imitation_setting": "consumption_absolute",
+
+# switch for relative vs. absolute areas
+"absolute_area": True,
+"default_property_area": 100.,
+
+# switch for price feedback
+"price_feedback": True,
+
+# =============================== initial conditions =======================================
+
+# switch for randomization of initial soil quality
+"randomize_initial_soil_quality": "random_uniform",
+# settings for distributions
+# if randomize_initial_soil_quality" not set to random, then q_0 = q_0_mean for all nodes
+"q_0_mean": .5,
+# for uniform distributions, min = mean - dev; max = mean + dev
+"q_0_dev": .5,
+
+# switch for randomization of initial savings
+"randomize_initial_savings": "random_lognormal",
+# switch for making initial capital proportional to area
+"k_0_prop_to_area": True,
+# all the same savings:
+"k_0_mean": 200, # either in total or per ha, depending on prop_to_area switch
+"k_0_dev": 10000,
+# shape for pareto distribution in case "randomize_initial_savings" is "random_pareto"
+"k_0_pareto_shape": 1,
+# standard deviation for "randomize_initial_savings" set to "random_lognormal"
+"k_0_std": 100,
+
+# switch for initial strategies
+"initial_strategy": "near_city", # available options: near_city, near_road, random
+"initial_strategy_prob": 0.5,
+"initial_strategy_distance_threshold": 10000., # in meters
+
+# initial conditions for land-use areas (relative):
+"P_0": 0.1,
+"F_0": 0.9,
+"S_0": 0.,
+
+# initial pasture: key of network attribute to load
+# if None use the above relative
+"initial_pasture_key": None
+
+}

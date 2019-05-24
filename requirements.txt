@@ -1,0 +1,22 @@
+certifi==2018.8.13
+cycler==0.10.0
+Cython==0.28.5
+decorator==4.3.0
+kiwisolver==1.0.1
+matplotlib==2.2.3
+mkl-fft==1.0.4
+mkl-random==1.0.1
+mpi4py==3.0.0
+mpmath==1.0.0
+networkx==2.1
+numpy==1.15.0
+pandas==0.23.4
+-e git+https://github.com/wbarfuss/pymofa.git@ed599fe3b62b28ecec1fb4a3f6035e0d3f5f281b#egg=pymofa
+pyparsing==2.2.0
+pyshp==1.2.12
+python-dateutil==2.7.3
+pytz==2018.5
+scipy==1.1.0
+six==1.11.0
+sympy==1.2
+tornado==5.1
